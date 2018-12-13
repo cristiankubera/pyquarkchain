@@ -1200,6 +1200,9 @@ class MasterServer:
         shard_r_c = self.root_state.db.get_block_count(header.height)
         return {"rootHeight": header.height, "shardRC": shard_r_c}
 
+    def get_graph(self):
+        return self.root_state.db.get_graph()
+
     async def get_stats(self):
         shards = []
         for shard_stats in self.branch_to_shard_stats.values():
